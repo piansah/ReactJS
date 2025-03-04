@@ -5,11 +5,11 @@ export default function Table() {
         <>
         <table border="1">
             <tbody>
-                <Row text= "Satu"/>
-                <Row text= "Dua"/>
-                <Row text= "Tiga"/>
-                <Row text= "Empat"/>
-                <Row text= "Lima"/>
+                <Row id="1" text= "Satu"/>
+                <Row id="2" text= "Dua"/>
+                <Row id="3" text= "Tiga"/>
+                <Row id="4" text= "Empat"/>
+                <Row id="5" text= "Lima"/>
             </tbody>
         </table>
         </>
