@@ -4,3 +4,10 @@ export default function AlertButton({ text, message }) {
   }
   return <button onClick={handleClick}>{text}</button>;
 }
+
+export function AlertDuaButton({ text, message }) {
+  function handleClick() {
+    alert(message);
+  }
+  return <button onClick={handleClick}>{text}</button>;
+}
