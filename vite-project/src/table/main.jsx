@@ -6,6 +6,7 @@ import AlertButton, { AlertDuaButton } from "../Button/AlertButton.jsx";
 import MyButton from "../Button/MyButton.jsx";
 import Toolbar from "../Button/Toolbar.jsx";
 import SearchForm from "../form/SearchForm.jsx";
+import SayHelloForm from "../form/SayHalloForm.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
       }}/>
 
       <SearchForm />
+      <SayHelloForm />
     </Container>
   </StrictMode>
 );
