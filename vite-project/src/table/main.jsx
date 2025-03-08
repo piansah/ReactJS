@@ -5,6 +5,8 @@ import Table from "./Table.jsx";
 import AlertButton, { AlertDuaButton } from "../Button/AlertButton.jsx";
 import MyButton from "../Button/MyButton.jsx";
 import Toolbar from "../Button/Toolbar.jsx";
+import SearchForm from "../form/SearchForm.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,6 +22,8 @@ createRoot(document.getElementById("root")).render(
         e.stopPropagation();
         alert("You Clicked Toolbar");
       }}/>
+
+      <SearchForm />
     </Container>
   </StrictMode>
 );
