@@ -12,6 +12,7 @@ export default function Table() {
                 <Row id="5" text= "Lima"/>
             </tbody>
         </table>
+        <hr/>
         </>
     )
 }
