@@ -4,6 +4,7 @@ import Container from "../hello-world/Container.jsx";
 import Table from "./Table.jsx";
 import AlertButton, { AlertDuaButton } from "../Button/AlertButton.jsx";
 import MyButton from "../Button/MyButton.jsx";
+import Toolbar from "../Button/Toolbar.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -14,6 +15,11 @@ createRoot(document.getElementById("root")).render(
 
       <MyButton text="Smash me" onSmash={() => alert("You Smash Me")} />
       <MyButton text="Hit me" onSmash={() => alert("You Hit Me")} />
+
+      <Toolbar onClick={(e) => {
+        e.stopPropagation();
+        alert("You Clicked Toolbar");
+      }}/>
     </Container>
   </StrictMode>
 );

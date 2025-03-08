@@ -6,7 +6,8 @@ export default function AlertButton({ text, message }) {
 }
 
 export function AlertDuaButton({ text, message }) {
-  function handleClick() {
+  function handleClick(e) {
+    console.info(e.target);
     alert(message);
   }
   return <button onClick={handleClick}>{text}</button>;
