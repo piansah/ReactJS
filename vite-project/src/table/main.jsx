@@ -7,7 +7,7 @@ import MyButton from "../Button/MyButton.jsx";
 import Toolbar from "../Button/Toolbar.jsx";
 import SearchForm from "../form/SearchForm.jsx";
 import SayHelloForm from "../form/SayHalloForm.jsx";
-
+import Counter from "../form/Counter.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +26,8 @@ createRoot(document.getElementById("root")).render(
 
       <SearchForm />
       <SayHelloForm />
+      <Counter />
+      <Counter />
     </Container>
   </StrictMode>
 );
