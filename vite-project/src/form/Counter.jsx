@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Counter() {
   let [count, setCounter] = useState(0);
-  
+
   console.info(`Render Counter ${count}`);
 
   function handleClick() {
@@ -15,5 +15,5 @@ export default function Counter() {
       <button onClick={handleClick}>Click Count</button>
       <p>Counter is {count}</p>
     </div>
-  )
+  );
 }
