@@ -11,6 +11,7 @@ export default defineConfig({
         hello_world: "hello-world.html",
         table: "table.html",
         contact: "contact.html",
+        task: "task.html",
       }
     }
   }
