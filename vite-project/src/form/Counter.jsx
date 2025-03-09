@@ -5,14 +5,15 @@ export default function Counter() {
 
   console.info(`Render Counter ${count}`);
 
-  function handleClick() {
-    setCounter(count + 3);
-    console.log(count);
-  }
-
   return (
     <div>
-      <button onClick={handleClick}>Click Count</button>
+      <button onClick={
+        () => {
+          setCounter(c => c + 1);
+          setCounter(c => c + 1);
+          setCounter(c => c + 1);
+        }
+      }>Click Count</button>
       <p>Counter is {count}</p>
     </div>
   );
