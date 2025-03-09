@@ -10,6 +10,7 @@ export default defineConfig({
         index: "index.html",
         hello_world: "hello-world.html",
         table: "table.html",
+        contact: "contact.html",
       }
     }
   }
