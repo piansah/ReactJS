@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { produce } from "immer";
 import NoteForm from "./NoteForm";
 import NoteList from "./NoteList";
 
@@ -10,31 +11,34 @@ const initialNotes = [
   { id: id++, text: "Learn React", done: false },
 ];
 
-// Reducer function untuk mengelola state
+// Reducer function dengan Immer
 function noteReducer(state, action) {
-  switch (action.type) {
-    case "ADD_NOTE":
-      return [
-        ...state,
-        {
+  return produce(state, (draft) => {
+    switch (action.type) {
+      case "ADD_NOTE":
+        draft.push({
           id: id++,
           text: action.payload,
           done: false,
-        },
-      ];
-    case "CHANGE_NOTE":
-      return state.map((note) =>
-        note.id === action.payload.id ? action.payload : note
-      );
-    case "DELETE_NOTE":
-      return state.filter((note) => note.id !== action.payload);
-    default:
-      return state;
-  }
+        });
+        break;
+      case "CHANGE_NOTE": {
+        const index = draft.findIndex((note) => note.id === action.payload.id);
+        if (index !== -1) {
+          draft[index] = action.payload;
+        }
+        break;
+      }
+      case "DELETE_NOTE":
+        return draft.filter((note) => note.id !== action.payload);
+      default:
+        return state;
+    }
+  });
 }
 
 export default function NoteApp() {
-  // Menggunakan useReducer
+  // Menggunakan useReducer dengan Immer
   const [notes, dispatch] = useReducer(noteReducer, initialNotes);
 
   function handleAddNote(text) {
