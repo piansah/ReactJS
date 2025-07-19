@@ -1,11 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import HelloPian from './HelloPian.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import HelloPian from "./HelloPian.jsx";
+import Container from "./Container.jsx";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <HelloPian/>
-    <HelloPian/>
-    <HelloPian/>
-  </StrictMode>,
-)
+    <Container>
+      <HelloPian />
+    </Container>
+  </StrictMode>
+);
