@@ -1,31 +1,39 @@
 export default function HelloPian() {
-   return (
-      <div>
-         <Header />
-         <Pharagraphes />
-      </div>
-   )
+  return (
+    <div>
+      <Header />
+      <Pharagraphes />
+      <SendProps text ="Send Properties"/>
+    </div>
+  );
 }
 // Komponen adalah fungsi yang mengembalikan elemen JSX.
 // Setiap komponen bisa digunakan kembali dan bisa menerima data lewat props.
-function Greeting(props) {
-  return <h1>Halo, {props.nama}!</h1>;
-}
-
-function Header() {
-   return (
-      <div>
-         <h1>Hello Pian</h1>
-      </div>
-   )
+export function Header({props = "Helloooww Pian"}) {
+  return (
+    <h1 style={{ color: "white", backgroundColor: "black" }}>
+      {props.toUpperCase()}
+    </h1>
+  );
 }
 // Komponen di React ibarat potongan UI yang bisa dipakai berulang.
 // Bisa dikasih data lewat props, dan hasilnya JSX (HTML di dalam JS).
-function Pharagraphes() {
-   return (
-      <div>
-         <p>This is my first React App</p>
-         <p>I hope you like it loplop</p>
-      </div>
-   )
+export function Pharagraphes({text = "This is my first React App"}) {
+  const style = {
+    color: "white",
+    backgroundColor: "black",
+  };
+  return (
+   <p style={style}>{text.toLocaleLowerCase()}</p>
+  );
+}
+
+export function SendProps({text}) {
+  const style = {
+    color: "white",
+    backgroundColor: "black",
+  };
+  return (
+   <p style={style}>{text.toLocaleLowerCase()}</p>
+  );
 }
