@@ -8,6 +8,7 @@ import AlertButton from "../button/AlertButton.jsx";
 import MaButton from "../button/MaButton.jsx";
 import Toolbar from "../button/Toolbar.jsx";
 import SearchForm from "../form/SearchForm.jsx";
+import SayHelloPian from "../form/SayHelloPian.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -26,8 +27,8 @@ createRoot(document.getElementById("root")).render(
           alert("Toolbar Clicked");
         }}
       />
-
       <SearchForm />
+      <SayHelloPian />
     </Container>
   </StrictMode>
 );
