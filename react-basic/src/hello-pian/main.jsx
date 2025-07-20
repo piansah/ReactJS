@@ -9,6 +9,7 @@ import MaButton from "../button/MaButton.jsx";
 import Toolbar from "../button/Toolbar.jsx";
 import SearchForm from "../form/SearchForm.jsx";
 import SayHelloPian from "../form/SayHelloPian.jsx";
+import Counter from "../form/Counter.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -29,6 +30,7 @@ createRoot(document.getElementById("root")).render(
       />
       <SearchForm />
       <SayHelloPian />
+      <Counter />
     </Container>
   </StrictMode>
 );
