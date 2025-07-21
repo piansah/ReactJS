@@ -24,7 +24,6 @@ export default function ContactForm() {
     });
   }
   function handleReset() {
-    contact(""); // kosongkan input
     setContact(() => []); // kosongkan daftar tugas
   }
   return (
