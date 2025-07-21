@@ -6,8 +6,8 @@ export default function MaTask() {
   const [items, setItems] = useImmer([]);
 
   function handleOnSubmit(item) {
-    setItems((items) => {
-      items.push(item);
+    setItems((draft) => {
+      draft.push(item);
     });
   }
   function handleReset() {
