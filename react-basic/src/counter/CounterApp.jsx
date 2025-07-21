@@ -10,8 +10,10 @@ export default function CounterApp() {
 
   return (
     <div>
-      {show2 && <Counter name="Pian"/>}
-      {!show2 && <Counter name="Budi"/>}
+      {show2 ? <Counter key="1" name="Pian"/> : <Counter key="2" name="Budi"/>}
+
+      {/* {show2 && <Counter name="Pian"/>}
+      {!show2 && <Counter name="Budi"/>} */}
 
       {/* {show2 ? <Counter name="Pian"/> : <Counter name="Budi"/>}
       
