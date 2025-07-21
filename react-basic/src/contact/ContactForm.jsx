@@ -23,10 +23,9 @@ export default function ContactForm() {
       draft.message = e.target.value;
     });
   }
-  function handleSubmit(e) {
-    setContact((draft) => {
-      draft.name = e.target.value;
-    });
+  function handleReset() {
+    contact(""); // kosongkan input
+    setContact(() => []); // kosongkan daftar tugas
   }
   return (
     <div>
@@ -38,9 +37,9 @@ export default function ContactForm() {
         <br />
         <textarea placeholder="Message" onChange={handleChangeMessage} />
         <br />
-        <input type="submit" value="Submit" onClick={handleSubmit} />
-        <br />
-        <input type="reset" value="Reset" />
+        <button type="button" onClick={handleReset}>
+          Reset
+        </button>
         <br />
       </form>
 

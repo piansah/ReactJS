@@ -9,7 +9,8 @@ export default defineConfig({
       input: {
         index: "index.html",
         pian: "hello-pian.html",
-        contact: "contact.html"
+        contact: "contact.html",
+        task: "task.html",
       }
     }
   },
