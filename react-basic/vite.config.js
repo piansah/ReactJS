@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: "index.html",
-        pian: "hello-pian.html"
+        pian: "hello-pian.html",
+        contact: "contact.html"
       }
     }
   },

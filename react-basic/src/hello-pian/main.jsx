@@ -31,6 +31,7 @@ createRoot(document.getElementById("root")).render(
       <SearchForm />
       <SayHelloPian />
       <Counter />
+      <Counter />
     </Container>
   </StrictMode>
 );
