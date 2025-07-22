@@ -1,22 +1,49 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { NotesDispatchContext } from "./NoteContext.jsx";
 
-export default function Note({ note, onChange, onDelete }) {
-  const [isEditing, setEditing] = useState(false);
+export default function Note({ note }) {
+  const dispatch = useContext(NotesDispatchContext);
+  const [isEditing, setIsEditing] = useState(false);
 
   function handleChangeText(e) {
-    const updatedNote = {
-      ...note,
-      text: e.target.value,
-    };
-    onChange(updatedNote);
+    dispatch({
+      type: "CHANGE_NOTE",
+      note: {
+        ...note,
+        text: e.target.value,
+      },
+    });
   }
 
   function handleChangeDone(e) {
-    const updatedNote = {
-      ...note,
-      done: e.target.checked,
-    };
-    onChange(updatedNote);
+    dispatch({
+      type: "CHANGE_NOTE",
+      note: {
+        ...note,
+        done: e.target.checked,
+      },
+    });
+  }
+
+  function handleDeleteNote() {
+    dispatch({ type: "DELETE_NOTE", id: note.id });
+  }
+
+  let component;
+  if (isEditing) {
+    component = (
+      <div>
+        <input value={note.text} onChange={handleChangeText} />
+        <button onClick={() => setIsEditing(false)}>Save</button>
+      </div>
+    );
+  } else {
+    component = (
+      <div>
+        {note.text}
+        <button onClick={() => setIsEditing(true)}>Edit</button>
+      </div>
+    );
   }
 
   return (
@@ -27,18 +54,9 @@ export default function Note({ note, onChange, onDelete }) {
           checked={note.done}
           onChange={handleChangeDone}
         />
-        {isEditing ? (
-          <div>
-            <input value={note.text} onChange={handleChangeText} />
-            <button onClick={() => setEditing(false)}>Save</button>
-          </div>
-        ) : (
-          <div>
-            <p>{note.text}</p>
-            <button onClick={() => setEditing(true)}>Edit</button>
-            <button onClick={() => onDelete(note)}>Delete</button>
-          </div>
-        )}
+        {component}
+        <button onClick={handleDeleteNote}>Delete</button>
+        <hr />
       </label>
     </div>
   );

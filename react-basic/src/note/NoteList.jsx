@@ -1,16 +1,17 @@
-import Note from "./Note";
+import { useContext } from "react";
+import Note from "./Note.jsx";
+import { NotesContext } from "./NoteContext.jsx";
 
-export default function NoteList({ notes, onChange, onDelete }) {
+export default function NoteList() {
+  const notes = useContext(NotesContext);
+
   return (
-    <div>
+    <ul>
       {notes.map((note) => (
-        <Note
-          key={note.id}
-          note={note}
-          onChange={onChange}
-          onDelete={onDelete}
-        />
+        <li key={note.id}>
+          <Note note={note} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
