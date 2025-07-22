@@ -8,8 +8,10 @@ export default function NoteForm({ onAddNote }) {
   }
 
   function handleClick() {
-    onAddNote(text);
-    setText("");
+    if (text.trim() !== "") {
+      onAddNote(text);
+      setText("");
+    }
   }
 
   return (

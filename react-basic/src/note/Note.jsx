@@ -1,47 +1,45 @@
 import { useState } from "react";
 
-export default function Note({note, onChange, onDelete}) {
-   const [isEditing, setEditing] = useState(false);
-   let component;
+export default function Note({ note, onChange, onDelete }) {
+  const [isEditing, setEditing] = useState(false);
 
-   function handleChangeText(e) {
-      const newNote = {
-         ...note,
-         text: e.target.value,
-      };
-      onChange(newNote);
-   }
+  function handleChangeText(e) {
+    const updatedNote = {
+      ...note,
+      text: e.target.value,
+    };
+    onChange(updatedNote);
+  }
 
-   if (isEditing) {
-      component = (
-         <div>
+  function handleChangeDone(e) {
+    const updatedNote = {
+      ...note,
+      done: e.target.checked,
+    };
+    onChange(updatedNote);
+  }
+
+  return (
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={note.done}
+          onChange={handleChangeDone}
+        />
+        {isEditing ? (
+          <div>
             <input value={note.text} onChange={handleChangeText} />
             <button onClick={() => setEditing(false)}>Save</button>
-         </div>
-      );
-   } else {
-      component = (
-         <div>
+          </div>
+        ) : (
+          <div>
             <p>{note.text}</p>
             <button onClick={() => setEditing(true)}>Edit</button>
-            <button onClick={() => onDelete(note.id)}>Delete</button>
-         </div>
-      )
-   }
-
-   function handleChangeDone(e) {
-      const newNote = {
-         ...note,
-         done: e.target.checked,
-      };
-      onChange(newNote);
-   }
-   return (
-      <div>
-         <label>
-            <input type="checkbox" checked={note.done} onChange={handleChangeDone} />
-            {component}
-         </label>
-      </div>
-   )
+            <button onClick={() => onDelete(note)}>Delete</button>
+          </div>
+        )}
+      </label>
+    </div>
+  );
 }

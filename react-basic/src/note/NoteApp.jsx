@@ -1,4 +1,4 @@
-import { useImmer } from "use-immer";
+import { useReducer } from "react";
 import NoteForm from "./NoteForm";
 import NoteList from "./NoteList";
 
@@ -12,35 +12,40 @@ const initialNotes = [
   { id: id++, text: "Sixth Note", done: true },
 ];
 
+function notesReducer(notes, action) {
+  switch (action.type) {
+    case "ADD_NOTE":
+      return [...notes, { id: id++, text: action.text, done: false }];
+    case "CHANGE_NOTE":
+      return notes.map((note) =>
+        note.id === action.note.id ? action.note : note
+      );
+    case "DELETE_NOTE":
+      return notes.filter((note) => note.id !== action.id);
+    default:
+      return notes;
+  }
+}
+
 export default function NoteApp() {
-  const [notes, setNotes] = useImmer(initialNotes);
+  const [notes, dispatch] = useReducer(notesReducer, initialNotes);
 
   function handleAddNote(text) {
-    setNotes((draft) => {
-      draft.push({ id: id++, text, done: false });
-    });
+    dispatch({ type: "ADD_NOTE", text });
   }
 
   function handleChangeNote(note) {
-    setNotes((draft) => {
-      const index = draft.findIndex((n) => n.id === note.id);
-      draft[index] = note;
-    });
+    dispatch({ type: "CHANGE_NOTE", note });
   }
 
   function handleDeleteNote(note) {
-    setNotes((draft) => {
-      const index = draft.findIndex((n) => n.id === note.id);
-      draft.splice(index, 1);
-    });
+    dispatch({ type: "DELETE_NOTE", id: note.id });
   }
 
   return (
     <div>
       <h1>Note App</h1>
-
       <NoteForm onAddNote={handleAddNote} />
-
       <NoteList
         notes={notes}
         onChange={handleChangeNote}
