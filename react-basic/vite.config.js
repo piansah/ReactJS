@@ -17,6 +17,7 @@ export default defineConfig({
         timer: "timer.html",
         guestbook: "guest-book.html",
         product: "react-basic/note.html",
+        online: "online.html", 
       }
     }
   },
