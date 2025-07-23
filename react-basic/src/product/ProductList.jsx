@@ -15,10 +15,15 @@ export default function ProductList() {
 
   useEffect(() => {
     console.log("load products");
+    async function fetchProduct() {
+      const response = await fetch("/products-data.json");
+      const data = await response.json();
+      setProducts(data);
+    }
+    console.log("Load Products")
+
     if (load) {
-      fetch("/products-data.json")
-        .then((response) => response.json())
-        .then((data) => setProducts(data));
+      fetchProduct();
     }
   }, [load]);
 
