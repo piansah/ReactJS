@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "Pinguin Frozen", "price": 100 },
+  { "id": 2, "name": "Beruang Beku", "price": 120 },
+  { "id": 3, "name": "Ikan Salju", "price": 80 },
+  { "id": 4, "name": "Udang Es", "price": 95 },
+  { "id": 5, "name": "Kepiting Kutub", "price": 110 },
+  { "id": 6, "name": "Cumi Arktik", "price": 105 },
+  { "id": 7, "name": "Lobster Dingin", "price": 130 },
+  { "id": 8, "name": "Kakap Beku", "price": 90 },
+  { "id": 9, "name": "Tuna Frost", "price": 140 },
+  { "id": 10, "name": "Salmon Glacier", "price": 150 },
+  { "id": 11, "name": "Dori Salju", "price": 85 },
+  { "id": 12, "name": "Sarden Kutub", "price": 60 },
+  { "id": 13, "name": "Gurita Es", "price": 115 },
+  { "id": 14, "name": "Hiu Beku", "price": 200 },
+  { "id": 15, "name": "Kerang Arktik", "price": 70 },
+  { "id": 16, "name": "Tiram Frosty", "price": 75 },
+  { "id": 17, "name": "Belut Dingin", "price": 88 },
+  { "id": 18, "name": "Lele Beku", "price": 78 },
+  { "id": 19, "name": "Bandeng Frost", "price": 92 },
+  { "id": 20, "name": "Patin Glacier", "price": 99 }
+]
