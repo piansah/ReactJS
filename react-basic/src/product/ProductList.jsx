@@ -10,6 +10,10 @@ export default function ProductList() {
   }
 
   useEffect(() => {
+    console.info(`Call useEffect with []`)
+  })
+
+  useEffect(() => {
     console.log("load products");
     if (load) {
       fetch("/products-data.json")
